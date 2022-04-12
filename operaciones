@@ -1,0 +1,52 @@
+Function: main/0
+Constants: None, " ", " "
+Locals: x,y
+Globals: print,input,int 
+
+BEGIN
+    LOAD_GLOBAL     2  
+    LOAD_GLOBAL     1
+    LOAD_CONST      1
+    CALL_FUNCTION   1
+    CALL_FUNCTION   1
+    STORE_FAST      0
+
+    LOAD_GLOBAL     2
+    LOAD_GLOBAL     1 
+    LOAD_CONST      2 
+    CALL_FUNCTION   1
+    CALL_FUNCTION   1
+    STORE_FAST      1
+
+;suma
+    LOAD_GLOBAL     0  
+    LOAD_FAST       0
+    LOAD_FAST       1
+    BINARY_ADD
+    CALL_FUNCTION   1
+
+;resta
+    LOAD_GLOBAL     0  
+    LOAD_FAST       0
+    LOAD_FAST       1
+    BINARY_SUBTRACT
+    CALL_FUNCTION   1
+
+;multiplica
+    LOAD_GLOBAL     0  
+    LOAD_FAST       0
+    LOAD_FAST       1
+    BINARY_MULTIPLY
+    CALL_FUNCTION   1
+
+;divide
+    LOAD_GLOBAL     0  
+    LOAD_FAST       0
+    LOAD_FAST       1
+    BINARY_FLOOR_DIVIDE
+    CALL_FUNCTION   1
+
+    POP_TOP
+    LOAD_CONST      0
+    RETURN_VALUE
+END
