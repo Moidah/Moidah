@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class reclamaciones {
+
+	public static void main(String[] args) {
+	    int ciudad=0, tUsuario=0, cajero=0;
+	    double prom=0;
+	    int hora=0, j=0, cont=0, cont2= 0, cont3=0, acumul=0;
+	    Scanner leer =new Scanner(System.in);
+			int reclamos=(int)(Math.random()*501);;
+			    int lista []= new int [reclamos];
+	    for (int i=0; i<reclamos;i++){
+	      int Puntuacion=0;
+	      ciudad= (int)(Math.random()*3)+1;
+	      if (ciudad == 1){
+	        Puntuacion+=100;
+	      }
+	      else if (ciudad == 2){
+	        Puntuacion+=60;
+	      }
+	      else if (ciudad == 3){
+	        Puntuacion+=20;
+	      }
+	      hora=(int)(Math.random()*25);
+	      if (hora >=8 && hora<=18){
+	        Puntuacion+=20;
+	      }
+	      else if (hora >18 && hora<=21){
+	        Puntuacion+=40;
+	      }
+	      else if (hora <8 || hora >21){
+	        Puntuacion+=100;
+	      }
+	      tUsuario=(int)(Math.random()*2);
+	      if (tUsuario == 1){
+	        Puntuacion+=30;
+	      }
+	      else if (tUsuario == 0){
+	        Puntuacion+=100;
+	      }
+	      cajero=(int)(Math.random()*2);
+	      if (cajero == 1){
+	        Puntuacion+=40;
+	      }
+	      else if (cajero == 0){
+	        Puntuacion+=100;
+	      }
+	      lista [j]=Puntuacion;
+	      j++;
+	      if (hora>=2 && hora<=10){
+	          cont+=1;
+	      }
+	      if (ciudad == 1 && cajero == 0){
+	          cont2+=1;
+	      }
+	      if (tUsuario == 0){
+	          cont3+=1;
+	          acumul+=Puntuacion;
+	          prom= acumul/cont3;
+	      }
+	      
+	    }
+	    System.out.println("El numero de reclamaciones es: "+ reclamos);
+	    int z=0,mayor=lista [0];
+			while (z<reclamos){
+			    if (lista[z]>mayor){
+			    mayor=lista[z];
+			}
+			  z++;  
+			}
+			System.out.println("El puntaje maximo es "+mayor);
+	   System.out.println("Reclamaciones 2am - 10am = "+cont);
+	   double CMT= (cont2/reclamos)* 100;
+	   System.out.println("% Reclamaciones multifuncional en ciudad A = "+CMT+"%");
+	   System.out.println("Promedio puntuaciones No cliente: "+ prom);
+	   
+	   
+	  }
+}
